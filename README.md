@@ -1,5 +1,13 @@
 # PHP_Laravel12_Automated_Testing
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-12-red" alt="Laravel 12">
+  <img src="https://img.shields.io/badge/Testing-PHPUnit-blue" alt="PHPUnit Testing">
+  <img src="https://img.shields.io/badge/Browser%20Testing-Dusk-purple" alt="Laravel Dusk">
+  <img src="https://img.shields.io/badge/Database-MySQL-orange" alt="MySQL">
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen" alt="Project Status">
+</p>
+
 ---
 
 ##  Overview
