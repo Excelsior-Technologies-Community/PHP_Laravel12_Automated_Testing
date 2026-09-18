@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Add Product</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -18,6 +26,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .card {
@@ -25,7 +34,7 @@
             padding: 30px 35px;
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            width: 380px;
+            width: 420px;
         }
 
         h2 {
@@ -102,7 +111,9 @@
             color: #4f46e5;
             text-decoration: none;
         }
+
     </style>
+
 </head>
 
 <body>
@@ -111,35 +122,61 @@
 
     <h2>Add Product</h2>
 
+
     @if(session('success'))
-        <div class="success" id="success-msg">
+
+        <div
+            class="success"
+            id="success-msg"
+            dusk="success-message"
+        >
             {{ session('success') }}
         </div>
+
     @endif
 
+
     @if($errors->any())
+
         <div
             class="error"
             id="validation-errors"
             dusk="validation-errors"
         >
 
-            <strong>Please fix the following errors:</strong>
+            <strong>
+                Please fix the following errors:
+            </strong>
 
             <ul>
+
                 @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+
+                    <li>
+                        {{ $error }}
+                    </li>
+
                 @endforeach
+
             </ul>
 
         </div>
+
     @endif
 
-    <form method="POST" action="/product/store">
+
+    <form
+        method="POST"
+        action="/product/store"
+        dusk="product-form"
+    >
 
         @csrf
 
-        <label for="name">Product Name</label>
+
+        <label for="name">
+            Product Name
+        </label>
 
         <input
             id="name"
@@ -150,7 +187,10 @@
             dusk="name-input"
         >
 
-        <label for="price">Product Price</label>
+
+        <label for="price">
+            Product Price
+        </label>
 
         <input
             id="price"
@@ -158,8 +198,10 @@
             name="price"
             value="{{ old('price') }}"
             placeholder="Price"
+            min="1"
             dusk="price-input"
         >
+
 
         <button
             type="submit"
@@ -169,6 +211,7 @@
         </button>
 
     </form>
+
 
     <a
         href="/products"
@@ -181,4 +224,5 @@
 </div>
 
 </body>
+
 </html>
