@@ -1,7 +1,24 @@
 <?php
 
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\TestRunnerController;
 use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Test Runner & Suite API Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('test-runner')->group(function () {
+    Route::get('/discovered', [TestRunnerController::class, 'discoveredTests']);
+    Route::post('/run', [TestRunnerController::class, 'runTests']);
+    Route::post('/load-test', [TestRunnerController::class, 'runLoadTest']);
+    Route::get('/snapshots', [TestRunnerController::class, 'snapshotStatus']);
+    Route::post('/snapshots/compare', [TestRunnerController::class, 'compareSnapshot']);
+    Route::post('/snapshots/update', [TestRunnerController::class, 'updateSnapshot']);
+    Route::get('/export-report', [TestRunnerController::class, 'exportReport']);
+});
+
 
 /*
 |--------------------------------------------------------------------------

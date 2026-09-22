@@ -1,18 +1,22 @@
 <?php
 
 use App\Models\Product;
+use App\Http\Controllers\TestRunnerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Home
+| Home & Test Studio
 |--------------------------------------------------------------------------
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test-studio', [TestRunnerController::class, 'index'])->name('test-studio');
+
 
 /*
 |--------------------------------------------------------------------------
