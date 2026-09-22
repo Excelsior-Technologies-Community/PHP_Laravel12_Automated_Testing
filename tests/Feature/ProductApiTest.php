@@ -20,12 +20,13 @@ class ProductApiTest extends TestCase
     #[Test]
     public function products_can_be_listed(): void
     {
+        Product::query()->delete();
         Product::factory()->count(3)->create();
 
         $response = $this->getJson('/api/products');
 
         $response->assertStatus(200)
-            ->assertJsonCount(3);
+            ->assertJsonCount(3, 'data.data');
     }
 
     /*
